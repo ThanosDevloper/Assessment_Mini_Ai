@@ -36,16 +36,16 @@ npm install
 ### 2. Configuration (.env)
 Create a `.env` file at the root of the project (template already provided in `.env.example`):
 ```env
-# Local database path
-DATABASE_URL="file:./dev.db"
+# PostgreSQL connection string (e.g. Neon.tech / Supabase)
+DATABASE_URL="postgresql://username:password@host/database?sslmode=require"
 
-# Optional: Add your Grok (xAI) API Key for live AI generation.
+# Optional: Add your Groq API Key for live AI generation.
 # If left blank, the app runs using the Offline Simulation engine.
-XAI_API_KEY="your-grok-api-key-here"
+GROQ_API_KEY="your-groq-api-key-here"
 ```
 
 ### 3. Database Initialization
-Instantiate the SQLite database and sync the schema:
+Sync the schema to your PostgreSQL database:
 ```bash
 npx prisma db push
 ```
